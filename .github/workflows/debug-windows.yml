@@ -44,6 +44,12 @@ jobs:
           echo "=== Check PATH ==="
           echo $PATH
 
+      - name: Debug - Check binding.gyp
+        shell: bash
+        run: |
+          echo "=== Current binding.gyp content ==="
+          cat binding.gyp
+
       - name: Debug - Try manual gyp configure
         shell: bash
         run: |
@@ -52,4 +58,8 @@ jobs:
 
           echo ""
           echo "=== Check generated build files ==="
-          cat build/tree_sitter_swift_binding.vcxproj | grep -A 5 -B 5 "tree-sitter" || true
+          cat build/tree_sitter_swift_binding.vcxproj | grep -A 10 -B 5 "CustomBuild" || true
+
+          echo ""
+          echo "=== Look for the exact command in vcxproj ==="
+          cat build/tree_sitter_swift_binding.vcxproj | grep -A 2 "Command>" || true
