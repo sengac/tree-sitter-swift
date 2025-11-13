@@ -29,13 +29,13 @@ jobs:
           node-version: 22
           cache: npm
 
-      - name: Install dependencies (skip scripts to avoid build issues)
-        run: npm install --ignore-scripts --omit peer --omit optional
+      - name: Install dependencies
+        run: npm install --omit peer --omit optional
 
-      - name: Generate parser
-        run: npx tree-sitter generate --no-bindings
+      - name: Generate parser files
+        run: npm run build
 
-      - name: Build binary
+      - name: Build prebuilds
         run: npx prebuildify -t 20.19.5
 
       - name: Upload prebuilds
