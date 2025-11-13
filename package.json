@@ -5,7 +5,6 @@
   "main": "bindings/node/index.js",
   "types": "bindings/node",
   "scripts": {
-    "install": "node-gyp-build",
     "start": "tree-sitter playground",
     "test": "node --test bindings/node/*_test.js"
   },
