@@ -13,7 +13,7 @@
     "test-ci": "./scripts/test-with-memcheck.sh --install-valgrind",
     "test": "./scripts/test-with-memcheck.sh",
     ,
-    "prebuild": "prebuildify --napi --strip --arch x64+arm64 --platform linux+darwin+win32"
+    "prebuild": "prebuildify -t 20.19.5"
     "prebuildify": "prebuildify --napi --strip"
   },
   "repository": {
