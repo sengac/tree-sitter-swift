@@ -36,7 +36,7 @@
 		  "src/parser.c",
 		  "src/tree_sitter",
 	      ],
-	      "action": ["node", "node_modules/tree-sitter-cli/tree-sitter.js", "generate", "--no-bindings"],
+	      "action": ["node", "node_modules/tree-sitter-cli/cli.js", "generate", "--no-bindings"],
 	  }
       ]
     }
