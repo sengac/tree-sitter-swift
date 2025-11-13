@@ -1,6 +1,6 @@
 {
   "name": "tree-sitter-swift",
-  "version": "0.7.1",
+  "version": "0.7.2",
   "description": "A tree-sitter grammar for the Swift programming language.",
   "main": "bindings/node/index.js",
   "types": "bindings/node",
@@ -12,6 +12,8 @@
     "ci": "prettier --check grammar.js",
     "test-ci": "./scripts/test-with-memcheck.sh --install-valgrind",
     "test": "./scripts/test-with-memcheck.sh",
+    ,
+    "prebuild": "prebuildify --napi --strip --arch x64+arm64 --platform linux+darwin+win32"
     "prebuildify": "prebuildify --napi --strip"
   },
   "repository": {
@@ -57,7 +59,7 @@
     "which": "2.0.2"
   },
   "peerDependencies": {
-    "tree-sitter": "^0.22.1"
+    "tree-sitter": "^0.25.0"
   },
   "peerDependenciesMeta": {
     "tree_sitter": {
