@@ -6,7 +6,6 @@
   "types": "bindings/node",
   "scripts": {
     "install": "node-gyp-build",
-    "prestart": "tree-sitter build --wasm",
     "start": "tree-sitter playground",
     "test": "node --test bindings/node/*_test.js"
   },
@@ -47,10 +46,8 @@
   },
   "homepage": "https://github.com/alex-pinkus/tree-sitter-swift#readme",
   "dependencies": {
-    "node-addon-api": "^8.0.0",
-    "node-gyp-build": "^4.8.0",
-    "tree-sitter-cli": "^0.23",
-    "which": "2.0.2"
+    "node-addon-api": "^8.3.1",
+    "node-gyp-build": "^4.8.4"
   },
   "peerDependencies": {
     "tree-sitter": "^0.25.0"
@@ -61,9 +58,8 @@
     }
   },
   "devDependencies": {
-    "node-gyp": "^10.0.1",
-    "prebuildify": "^6.0.0",
-    "prettier": "2.3.2"
+    "prebuildify": "^6.0.1",
+    "tree-sitter-cli": "^0.25.8"
   },
   "publishConfig": {
     "access": "public"
