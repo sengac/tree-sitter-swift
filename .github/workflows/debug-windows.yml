@@ -1,0 +1,55 @@
+name: Debug Windows Build
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - with-generated-files
+
+jobs:
+  debug:
+    runs-on: windows-2025
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 20.12.1
+          cache: npm
+
+      - name: Install dependencies
+        run: npm install --omit peer --omit optional
+
+      - name: Debug - Check tree-sitter installation
+        shell: bash
+        run: |
+          echo "=== Checking tree-sitter command ==="
+          which tree-sitter || echo "tree-sitter not in PATH"
+          ls -la node_modules/.bin/ || true
+          ls -la node_modules/tree-sitter-cli/ || true
+
+          echo ""
+          echo "=== Trying to run tree-sitter directly ==="
+          npx tree-sitter --version || echo "npx tree-sitter failed"
+
+          echo ""
+          echo "=== Checking what 'which' returns ==="
+          node -e "const which = require('which'); which('tree-sitter').then(p => console.log('which found:', p)).catch(e => console.log('which failed:', e.message))"
+
+          echo ""
+          echo "=== Testing tree-sitter commands ==="
+          npx tree-sitter generate --help || echo "generate --help failed"
+
+          echo ""
+          echo "=== Check PATH ==="
+          echo $PATH
+
+      - name: Debug - Try manual gyp configure
+        shell: bash
+        run: |
+          echo "=== Attempting node-gyp configure ==="
+          npx node-gyp configure || true
+
+          echo ""
+          echo "=== Check generated build files ==="
+          cat build/tree_sitter_swift_binding.vcxproj | grep -A 5 -B 5 "tree-sitter" || true

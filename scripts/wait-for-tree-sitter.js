@@ -7,8 +7,12 @@ const stat = promisify(fs.stat);
 
 async function main() {
   const treeSitterExecutable = await which("tree-sitter");
+  console.log("[DEBUG] tree-sitter executable found at:", treeSitterExecutable);
+  console.log("[DEBUG] Platform:", os.platform());
+
   if (!treeSitterExecutable.includes("node_modules")) {
     // Not installed through npm, so should be safe.
+    console.log("[DEBUG] tree-sitter not in node_modules, skipping wait");
     return;
   }
 
@@ -18,6 +22,7 @@ async function main() {
     "..",
     "tree-sitter-cli"
   );
+  console.log("[DEBUG] Waiting for tree-sitter in:", realTreeSitterDir);
   let timeout = undefined;
   let timeoutResolve = undefined;
   Promise.race([
