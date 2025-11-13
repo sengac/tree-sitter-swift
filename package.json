@@ -12,8 +12,7 @@
     "ci": "prettier --check grammar.js",
     "test-ci": "./scripts/test-with-memcheck.sh --install-valgrind",
     "test": "./scripts/test-with-memcheck.sh",
-    ,
-    "prebuild": "prebuildify -t 20.19.5"
+    "prebuild": "prebuildify -t 20.19.5",
     "prebuildify": "prebuildify --napi --strip"
   },
   "repository": {
