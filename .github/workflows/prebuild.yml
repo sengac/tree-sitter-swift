@@ -3,10 +3,7 @@ name: Build Prebuilds
 on:
   push:
     branches:
-      - main
-      - master
-      - 'fix/**'
-  pull_request:
+      - with-generated-files
   workflow_dispatch:
 
 jobs:
@@ -29,15 +26,8 @@ jobs:
           node-version: 22
           cache: npm
 
-      - name: Install dependencies without running install scripts
-        run: npm install --ignore-scripts --omit peer --omit optional
-
-      - name: Install tree-sitter-cli postinstall
-        run: cd node_modules/tree-sitter-cli && npm run postinstall
-        shell: bash
-
-      - name: Generate parser files
-        run: npx tree-sitter generate --no-bindings
+      - name: Install dependencies
+        run: npm install --omit peer --omit optional
 
       - name: Build prebuilds
         run: npx prebuildify -t 20.19.5
