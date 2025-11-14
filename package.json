@@ -1,12 +1,13 @@
 {
   "name": "@sengac/tree-sitter-swift",
-  "version": "0.25.2",
+  "version": "0.25.3",
   "description": "A tree-sitter grammar for the Swift programming language.",
   "main": "bindings/node/index.js",
   "types": "bindings/node",
   "scripts": {
     "start": "tree-sitter playground",
-    "test": "node --test bindings/node/*_test.js"
+    "test": "node --test bindings/node/*_test.js",
+    "install": "node-gyp-build"
   },
   "repository": {
     "type": "git",
@@ -49,7 +50,7 @@
     "node-gyp-build": "^4.8.4"
   },
   "peerDependencies": {
-    "@sengac/tree-sitter": "^0.25.6"
+    "@sengac/tree-sitter": "^0.25.8"
   },
   "peerDependenciesMeta": {
     "tree_sitter": {
