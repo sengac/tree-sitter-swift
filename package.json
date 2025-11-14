@@ -1,13 +1,14 @@
 {
   "name": "@sengac/tree-sitter-swift",
-  "version": "0.25.4",
+  "version": "0.25.5",
   "description": "A tree-sitter grammar for the Swift programming language.",
   "main": "bindings/node/index.js",
   "types": "bindings/node",
   "scripts": {
     "start": "tree-sitter playground",
     "test": "node --test bindings/node/*_test.js",
-    "install": "node-gyp-build"
+    "install": "node-gyp-build",
+    "prebuildify": "prebuildify --napi --name node.napi"
   },
   "repository": {
     "type": "git",
