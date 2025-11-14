@@ -1,6 +1,6 @@
 {
   "name": "@sengac/tree-sitter-swift",
-  "version": "0.25.12",
+  "version": "0.25.13",
   "description": "A tree-sitter grammar for the Swift programming language.",
   "main": "bindings/node/index.js",
   "types": "bindings/node",
