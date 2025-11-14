@@ -1,6 +1,6 @@
 {
   "name": "@sengac/tree-sitter-swift",
-  "version": "0.25.1",
+  "version": "0.25.2",
   "description": "A tree-sitter grammar for the Swift programming language.",
   "main": "bindings/node/index.js",
   "types": "bindings/node",
@@ -49,7 +49,7 @@
     "node-gyp-build": "^4.8.4"
   },
   "peerDependencies": {
-    "tree-sitter": "^0.25.0"
+    "@sengac/tree-sitter": "^0.25.6"
   },
   "peerDependenciesMeta": {
     "tree_sitter": {
